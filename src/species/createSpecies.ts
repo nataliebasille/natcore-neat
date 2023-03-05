@@ -1,5 +1,5 @@
-import { Species } from "./types";
-import { Genome } from "../genome";
+import { Species } from './types';
+import { Genome } from '../genome';
 
 export function createSpecies(
   prototype: Genome,

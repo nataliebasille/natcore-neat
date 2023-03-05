@@ -1,11 +1,11 @@
-import type { Config } from "@jest/types";
+import type { Config } from '@jest/types';
 
 const config = {
-  preset: "ts-jest",
+  preset: 'ts-jest',
   transform: {
-    "^.+\\.(ts|tsx)?$": "ts-jest",
+    '^.+\\.(ts|tsx)?$': 'ts-jest',
   },
-  transformIgnorePatterns: ["node_modules/(?!@nataliebasille/.*)"],
+  transformIgnorePatterns: ['node_modules/(?!@nataliebasille/.*)'],
 };
 
 export default config;

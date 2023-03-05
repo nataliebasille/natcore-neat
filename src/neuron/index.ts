@@ -1,2 +1,2 @@
-export * from "./activationFunctions";
-export * from "./types";
+export * from './activationFunctions';
+export * from './types';

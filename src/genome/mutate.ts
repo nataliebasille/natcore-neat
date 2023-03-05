@@ -1,12 +1,12 @@
-import { Neuron } from "../neuron/types";
-import { Gene } from "../gene";
-import { Genome } from "./genome";
-import { NextInnovationNumber } from "./types";
-import { sigmoid } from "../neuron";
-import { RandomNumberGenerator } from "@nataliebasille/typescript-utils/random";
-import { pipe } from "@nataliebasille/typescript-utils/pipe";
-import { getInteger } from "@nataliebasille/typescript-utils/random/getInteger";
-import { range } from "@nataliebasille/typescript-utils/range";
+import { Neuron } from '../neuron/types';
+import { Gene } from '../gene';
+import { Genome } from './genome';
+import { NextInnovationNumber } from './types';
+import { sigmoid } from '../neuron';
+import { RandomNumberGenerator } from '@nataliebasille/typescript-utils/random';
+import { pipe } from '@nataliebasille/typescript-utils/functional';
+import { getInteger } from '@nataliebasille/typescript-utils/random/getInteger';
+import { range } from '@nataliebasille/typescript-utils/range';
 
 type MutationOptions = {
   readonly rng: RandomNumberGenerator;
@@ -52,19 +52,6 @@ export function mutate(
   );
 }
 
-function mutateMutationRates(
-  rng: RandomNumberGenerator,
-  genome: Genome
-): Genome {
-  return {
-    ...genome,
-    mutationRates: Object.keys(genome.mutationRates).reduce((acc, key) => {
-      (acc as any)[key] *= getInteger(rng, 0, 2) ? 1.05 : 0.95;
-      return acc;
-    }, genome.mutationRates),
-  };
-}
-
 function mutateWeights(rng: RandomNumberGenerator, genome: Genome): Genome {
   if (genome.genes.length === 0) return genome;
 
@@ -99,10 +86,10 @@ function tryAddConnection(
   const node1 = nodes[nodeIndex1];
   const node2 = nodes[nodeIndex2];
 
-  if (node1.type === "input" && node2.type === "input") return genome;
+  if (node1.type === 'input' && node2.type === 'input') return genome;
 
-  const inputNode = node2.type === "input" ? node2 : node1;
-  const outputNode = node2.type === "input" ? node1 : node2;
+  const inputNode = node2.type === 'input' ? node2 : node1;
+  const outputNode = node2.type === 'input' ? node1 : node2;
 
   if (
     genes.find((gene) => gene.in === inputNode.id && gene.out === outputNode.id)
@@ -154,7 +141,7 @@ function tryAddNode(
     ...genome.nodes,
     {
       id: nextNeuronId(genome.nodes),
-      type: "hidden",
+      type: 'hidden',
       activationFunction: sigmoid,
     },
   ];

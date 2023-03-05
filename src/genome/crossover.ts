@@ -1,7 +1,7 @@
-import { RandomNumberGenerator } from "@nataliebasille/typescript-utils/random";
-import { getInteger } from "@nataliebasille/typescript-utils/random/getInteger";
-import { Gene } from "../gene";
-import { Genome } from "./genome";
+import { RandomNumberGenerator } from '@nataliebasille/typescript-utils/random';
+import { getInteger } from '@nataliebasille/typescript-utils/random/getInteger';
+import { Gene } from '../gene';
+import { Genome } from './genome';
 
 export function crossover({
   alpha,

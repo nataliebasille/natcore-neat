@@ -1,10 +1,10 @@
-import { createGenone } from ".";
-import { sigmoid } from "../neuron";
-import { evaluate } from "./evaluate";
-import { Genome } from "./genome";
+import { createGenone } from '.';
+import { sigmoid } from '../neuron';
+import { evaluate } from './evaluate';
+import { Genome } from './genome';
 
 describe(evaluate.name, () => {
-  it(`returns activationFunction of 0 if output doesn't have any connections`, () => {
+  it('returns activationFunction of 0 if output doesn\'t have any connections', () => {
     const genome: Genome = {
       ...createGenone({
         inputs: 1,
@@ -20,7 +20,7 @@ describe(evaluate.name, () => {
     expect(evaluate(genome, [0.5])).toEqual([sigmoid(0)]);
   });
 
-  it("evaluate simple nueral net with 1 input and 1 output", () => {
+  it('evaluate simple nueral net with 1 input and 1 output', () => {
     const genome: Genome = {
       ...createGenone({
         inputs: 1,
@@ -36,7 +36,7 @@ describe(evaluate.name, () => {
     expect(evaluate(genome, [0.5])).toEqual([sigmoid(sigmoid(0.5) * 0.5)]);
   });
 
-  it("evaluates a neural net with a hidden node", () => {
+  it('evaluates a neural net with a hidden node', () => {
     const base = createGenone({
       inputs: 1,
       outputs: 1,
@@ -47,7 +47,7 @@ describe(evaluate.name, () => {
       ...base,
       nodes: [
         ...base.nodes,
-        { id: 2, type: "hidden", activationFunction: sigmoid },
+        { id: 2, type: 'hidden', activationFunction: sigmoid },
       ],
       genes: [
         { in: 0, out: 2, weight: 0.25, innovation: 0, enabled: true },
@@ -66,7 +66,7 @@ describe(evaluate.name, () => {
     ]);
   });
 
-  it("evaluates a neural net with two inputs", () => {
+  it('evaluates a neural net with two inputs', () => {
     const base = createGenone({
       inputs: 2,
       outputs: 1,
@@ -78,7 +78,7 @@ describe(evaluate.name, () => {
       ...base,
       nodes: [
         ...base.nodes,
-        { id: 3, type: "hidden", activationFunction: sigmoid },
+        { id: 3, type: 'hidden', activationFunction: sigmoid },
       ],
       genes: [
         { in: 0, out: 3, weight: 0.25, innovation: 0, enabled: true },
@@ -101,7 +101,7 @@ describe(evaluate.name, () => {
     ]);
   });
 
-  it("evaluates a neural net with two input and two hidden nodes", () => {
+  it('evaluates a neural net with two input and two hidden nodes', () => {
     const base = createGenone({
       inputs: 2,
       outputs: 1,
@@ -113,8 +113,8 @@ describe(evaluate.name, () => {
       ...base,
       nodes: [
         ...base.nodes,
-        { id: 3, type: "hidden", activationFunction: sigmoid },
-        { id: 4, type: "hidden", activationFunction: sigmoid },
+        { id: 3, type: 'hidden', activationFunction: sigmoid },
+        { id: 4, type: 'hidden', activationFunction: sigmoid },
       ],
       genes: [
         { in: 0, out: 3, weight: 0.1, innovation: 0, enabled: true },

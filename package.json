@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/nataliebasille/natcore-neat#readme",
   "dependencies": {
-    "@nataliebasille/typescript-utils": "^1.0.3",
+    "@nataliebasille/typescript-utils": "git+https://github.com/nataliebasille/typescript-utils.git",
     "typescript": "^4.9.4"
   },
   "devDependencies": {

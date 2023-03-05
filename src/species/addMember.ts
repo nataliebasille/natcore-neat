@@ -1,5 +1,5 @@
-import { Species } from "./types";
-import { Genome } from "../genome";
+import { Species } from './types';
+import { Genome } from '../genome';
 
 export function addMember(species: Species, genome: Genome): Species {
   return {

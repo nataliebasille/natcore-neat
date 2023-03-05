@@ -1,21 +1,21 @@
-import { Genome } from "./genome";
-import { Neuron } from "../neuron/types";
-import { Gene } from "../gene";
+import { Genome } from './genome';
+import { Neuron } from '../neuron/types';
+import { Gene } from '../gene';
 
 export function evaluate(genome: Genome, inputs: number[]): number[] {
-  if (genome.nodes.filter((x) => x.type === "input").length !== inputs.length) {
-    throw new Error("Number of inputs does not match genome inputs");
+  if (genome.nodes.filter((x) => x.type === 'input').length !== inputs.length) {
+    throw new Error('Number of inputs does not match genome inputs');
   }
 
   const neurons = [
     // Ensuring input nodes are first to be evaluated,
     // then hidden nodes
     // then finally output nodes
-    ...genome.nodes.filter((x) => x.type === "input"),
-    ...genome.nodes.filter((x) => x.type === "hidden"),
-    ...genome.nodes.filter((x) => x.type === "output"),
+    ...genome.nodes.filter((x) => x.type === 'input'),
+    ...genome.nodes.filter((x) => x.type === 'hidden'),
+    ...genome.nodes.filter((x) => x.type === 'output'),
   ].map((node, index) =>
-    createNeuron(node, node.type === "input" ? inputs[index] : 0)
+    createNeuron(node, node.type === 'input' ? inputs[index] : 0)
   );
 
   const outputToInputsMapping = genome.genes.reduce((map, gene) => {
@@ -47,7 +47,7 @@ export function evaluate(genome: Genome, inputs: number[]): number[] {
 
       return neuron;
     })
-    .filter((x) => x.type === "output")
+    .filter((x) => x.type === 'output')
     .map((x) => x.activationFunction(x.value));
 }
 

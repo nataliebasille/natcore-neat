@@ -3,14 +3,14 @@ import {
   createGenone,
   mutate,
   NextInnovationNumber,
-} from "../genome";
-import { RandomNumberGenerator } from "@nataliebasille/typescript-utils/random";
-import { range } from "@nataliebasille/typescript-utils/range";
-import { nextInnovationNumberForPopulationFactory } from "./nextInnovationNumberForPopulationFactory";
-import { distance } from "../species";
-import { createSpecies } from "../species/createSpecies";
-import { addMember } from "../species/addMember";
-import { Population, PopulationSpecies } from "./types";
+} from '../genome';
+import { RandomNumberGenerator } from '@nataliebasille/typescript-utils/random';
+import { range } from '@nataliebasille/typescript-utils/range';
+import { nextInnovationNumberForPopulationFactory } from './nextInnovationNumberForPopulationFactory';
+import { distance } from '../species';
+import { createSpecies } from '../species/createSpecies';
+import { addMember } from '../species/addMember';
+import { Population, PopulationSpecies } from './types';
 
 type CreatePopulationOptions = CreateGenomeOptions & {
   populationSize?: number;

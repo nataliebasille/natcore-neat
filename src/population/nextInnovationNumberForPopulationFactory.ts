@@ -1,4 +1,4 @@
-import { NextInnovationNumber } from "../genome";
+import { NextInnovationNumber } from '../genome';
 
 export function nextInnovationNumberForPopulationFactory(
   nextInnovationNumber: NextInnovationNumber

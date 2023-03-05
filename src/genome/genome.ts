@@ -1,9 +1,9 @@
-import { RandomNumberGenerator } from "@nataliebasille/typescript-utils/random";
-import { range } from "@nataliebasille/typescript-utils/range";
-import { Gene } from "../gene";
-import { sigmoid } from "../neuron";
-import { Neuron } from "../neuron/types";
-import { NextInnovationNumber } from "./types";
+import { RandomNumberGenerator } from '@nataliebasille/typescript-utils/random';
+import { range } from '@nataliebasille/typescript-utils/range';
+import { Gene } from '../gene';
+import { sigmoid } from '../neuron';
+import { Neuron } from '../neuron/types';
+import { NextInnovationNumber } from './types';
 
 export type Genome = {
   readonly nodes: Neuron[];
@@ -51,12 +51,12 @@ export function createGenone({
 }: CreateGenomeOptions): Genome {
   const inputNodes: Neuron[] = range(inputs).map((i) => ({
     id: i,
-    type: "input",
+    type: 'input',
     activationFunction: sigmoid,
   }));
   const outputNodes: Neuron[] = range(outputs).map((i) => ({
     id: i + inputs,
-    type: "output",
+    type: 'output',
     activationFunction: sigmoid,
   }));
 

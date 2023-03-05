@@ -1,12 +1,12 @@
-import { crossover, Genome, mutate, NextInnovationNumber } from "../genome";
-import { Population } from "./types";
-import { createSpecies } from "../species/createSpecies";
-import { distance, GenomeWithFitness } from "../species";
-import { addMember } from "../species/addMember";
-import { evaluateSpecies } from "../species/evaluateSpecies";
-import { RandomNumberGenerator } from "@nataliebasille/typescript-utils/random";
-import { getInteger } from "@nataliebasille/typescript-utils/random/getInteger";
-import { weighted } from "@nataliebasille/typescript-utils/random/weighted";
+import { crossover, Genome, mutate, NextInnovationNumber } from '../genome';
+import { Population } from './types';
+import { createSpecies } from '../species/createSpecies';
+import { distance, GenomeWithFitness } from '../species';
+import { addMember } from '../species/addMember';
+import { evaluateSpecies } from '../species/evaluateSpecies';
+import { RandomNumberGenerator } from '@nataliebasille/typescript-utils/random';
+import { getInteger } from '@nataliebasille/typescript-utils/random/getInteger';
+import { weighted } from '@nataliebasille/typescript-utils/random/weighted';
 
 type NextGenerationOptions = {
   fitnessProportion?: number;
@@ -32,7 +32,7 @@ export function nextGeneration(
     evaluateSpecies(species, fitnessFunction)
   );
 
-  let survivingSpecies = speciesWithFitness
+  const survivingSpecies = speciesWithFitness
     .map(({ members, fitness, ...species }) => {
       const surviving = members
         .sort((a, b) => b.fitness - a.fitness)
@@ -128,14 +128,14 @@ function breed(
   const child =
     rng() < subject.mutationRates.crossoverChange
       ? (() => {
-          const randomIndex = getInteger(rng, 0, surviving.length);
-          const partner = surviving[randomIndex];
-          return crossover({
-            alpha: subject.fitness > partner.fitness ? subject : partner,
-            beta: subject.fitness > partner.fitness ? partner : subject,
-            rng,
-          });
-        })()
+        const randomIndex = getInteger(rng, 0, surviving.length);
+        const partner = surviving[randomIndex];
+        return crossover({
+          alpha: subject.fitness > partner.fitness ? subject : partner,
+          beta: subject.fitness > partner.fitness ? partner : subject,
+          rng,
+        });
+      })()
       : subject;
 
   return mutate(child, { rng, nextInnovationNumber });

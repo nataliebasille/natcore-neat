@@ -1,4 +1,4 @@
-import { Species } from "../species";
+import { Species } from '../species';
 
 export type Population = {
   readonly populationSize: number;

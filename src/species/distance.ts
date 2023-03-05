@@ -1,5 +1,5 @@
-import { Genome } from "../genome";
-import { Species } from "./types";
+import { Genome } from '../genome';
+import { Species } from './types';
 
 type DistanceOptions = {
   readonly excessGeneCoefficient: number;
@@ -42,7 +42,7 @@ export function distance(
   const excessGeneCount =
     maxSpeciesPrototypeInnovationNumber > minInnovation
       ? species.prototype.genes.filter((x) => x.innovation > minInnovation)
-          .length
+        .length
       : genome.genes.filter((x) => x.innovation > minInnovation).length;
 
   const disjointGeneCount = [...species.prototype.genes, ...genome.genes]

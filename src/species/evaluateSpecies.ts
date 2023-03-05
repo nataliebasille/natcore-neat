@@ -1,5 +1,5 @@
-import { Genome } from "../genome";
-import { Species, SpeciesWithFitness } from "./types";
+import { Genome } from '../genome';
+import { Species, SpeciesWithFitness } from './types';
 
 export function evaluateSpecies(
   species: Species,

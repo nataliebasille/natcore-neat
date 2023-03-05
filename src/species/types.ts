@@ -1,4 +1,4 @@
-import { Genome } from "../genome";
+import { Genome } from '../genome';
 
 export type Species = {
   readonly prototype: Genome;
@@ -12,7 +12,7 @@ export type GenomeWithFitness = Genome & {
   adjustedFitness: number;
 };
 
-export type SpeciesWithFitness = Omit<Species, "members"> & {
+export type SpeciesWithFitness = Omit<Species, 'members'> & {
   readonly bestLifetimeFitness: number;
   readonly fitness: number;
   readonly members: GenomeWithFitness[];
